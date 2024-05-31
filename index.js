@@ -1,5 +1,6 @@
 const express = require('express');
 const { createClient } = require('@supabase/supabase-js');
+const cors = require('cors');
 
 const app = express();
 const port = 4000;
@@ -8,6 +9,8 @@ const port = 4000;
 const supabaseUrl = 'https://ggtofmrfavzkfzserhfn.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdndG9mbXJmYXZ6a2Z6c2VyaGZuIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcwOTk5Mzk2NiwiZXhwIjoyMDI1NTY5OTY2fQ.yZQ7guG1jLmbE-7tChid2Fzl8ilobYSi_wcVbVY1sxA';
 const supabase = createClient(supabaseUrl, supabaseKey);
+
+app.use(cors());
 
 // Endpoint para obtener datos de la tabla "pedidos"
 app.get('/pedidos', async (req, res) => {
